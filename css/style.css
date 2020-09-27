@@ -7,11 +7,13 @@ body {
    /*  background: #43cea2;
     background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
     background: linear-gradient(to right, #185a9d, #43cea2);  */
+    background: #F4F6FA;
     width: 100%;
     height: 100%;
     font-family: sans-serif;
     letter-spacing: 0.0 3em;
     line-height: 1.6;
+    align-items: center;
 }
 
 .title{
@@ -29,6 +31,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    text-align: center;
     margin: auto;
 }
 
@@ -36,7 +39,7 @@ body {
 
     width: 330px;
     height: 430px;
-    border-radius: 8px;
+    border-radius: 50px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     overflow: hidden;
     margin: 20px; /*separacion entre cards*/
@@ -67,7 +70,11 @@ body {
 .container .card a{
     font-weight: 500;
     text-decoration: none;
-    color: #3498db;
+    border: 1px solid ;
+    text-align: center;
+    padding:  10px;
+    width: 45%;
+    
 }
 
 
