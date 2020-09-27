@@ -21,14 +21,14 @@ body {
    
     height: 30px ;
     width: max-content;
-    font-size: 1vw;
+    font-size: 2vw;
 
 
     word-wrap: break-word;
     overflow: auto;
 }
 .card-text{
-    font-size: 1vw;
+    font-size: 2vw;
     position: static;
     word-wrap: break-word;
     width: max-content;
