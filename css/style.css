@@ -32,13 +32,13 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     text-align: center;
-    margin: 60px;
+    margin: auto;
 }
 
 .container .card{
 
-    width: 330px;
-    height: 430px;
+    width: 25%;
+    height: 70%;
     border-radius: 50px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     overflow: hidden;
@@ -54,24 +54,28 @@ body {
 }
 
 .container .card img{
-    width: 330px;
-    height: 220px;
+    width: 90%;
+    height: 55%;
     align-items: center;
 
 }
 
 .container .card h4{
     font-weight: 600;
+    font-size: 80%;
+
 }
 
 .container .card p{
     padding: 0 1rem;
-    font-size: 16px;
+    font-size: 80%;
     font-weight: 300;
 }
 
 .container .card a{
     font-weight: 500;
+    font-size: 80%;
+
     text-decoration: none;
     border: 1px solid ;
     text-align: center;
