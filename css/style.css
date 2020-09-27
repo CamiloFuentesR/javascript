@@ -14,3 +14,25 @@ body {
     color: #000;
     outline: 0 none;
 }
+
+.card-title{
+    position: static;
+
+   
+    height: 30px ;
+    
+
+    word-wrap: break-word;
+    overflow: auto;
+}
+.card-text{
+    
+    position: static;
+    word-wrap: break-word;
+
+    height: 30px ;
+    
+    overflow: auto;
+
+
+}
