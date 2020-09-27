@@ -20,16 +20,18 @@ body {
 
    
     height: 30px ;
-    
+    width: max-content;
+    font-size: 1vw;
+
 
     word-wrap: break-word;
     overflow: auto;
 }
 .card-text{
-    
+    font-size: 1vw;
     position: static;
     word-wrap: break-word;
-
+    width: max-content;
     height: 30px ;
     
     overflow: auto;
