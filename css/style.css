@@ -76,10 +76,16 @@ body {
     border: 1px solid ;
     text-align: center;
     padding:  10px;
+    color: #24bfcc;
     width: 45%;
     border-radius: 9px;
 
     
+}
+.container .card a:hover{
+    background-color: #24bfcc ;
+    color: #fff;
+
 }
 
 
