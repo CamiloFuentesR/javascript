@@ -1,6 +1,7 @@
 //variables
 //usa un frame work de ccs que no es bootstrap
 const btnEnviar = document.querySelector('#enviar');
+const btnReset = document.querySelector('#resetBtn');
 const eR = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,4}))$/;
 
 //variables para campos del form
@@ -11,11 +12,12 @@ const mensaje = document.querySelector('#mensaje');
 const formulario = document.querySelector('#enviar-mail');
 let error = document.querySelector('p.error');
 let alinear = document.querySelector('.material-icons.alinear.mensaje');
-console.log(error);
+//console.log(error);
 
 
 //event listener
 eventListeners();
+
 
 function eventListeners() {
     //Cuando la appp arranca
@@ -23,8 +25,12 @@ function eventListeners() {
 
     //campos del form
     email.addEventListener('blur', validarForm);
+    email.addEventListener('input',validarForm);
     asunto.addEventListener('blur', validarForm);
     mensaje.addEventListener('blur', validarForm);
+    formulario.addEventListener('submit',enviarEmail);
+    //reinicia el form
+    btnReset.addEventListener('click',resetearFormulario);
 }
 //funciones
 function iniciarApp() {
@@ -36,7 +42,7 @@ function iniciarApp() {
 function validarForm(e) {
     //e.target.addEventListener('input',validarForm);
     e.target.addEventListener('input',validarForm);
-    console.log(e.target);
+    //console.log(e.target);
     if (e.target.value.length > 0) {
 
         error = document.querySelector('p.error');
@@ -135,5 +141,36 @@ function mostrarError(mensaje) {
         //console.log(errores.length);
         formulario.appendChild(mensajeError);
     }
+}
+
+function enviarEmail(e){
+    e.preventDefault();
+    const spinner = document.querySelector('#spinner');
+    spinner.style.display = 'flex';
+
+    //despues de 3 segundos ocultar el spinner
+
+    setTimeout(()=>{
+       // console.log('esta funcion  se ejecuta despues de 3 segundos');
+       spinner.style.display = 'none';
+
+       const parrafo = document.createElement('p');
+       parrafo.textContent = 'El mensaje se envio correctamente';
+       parrafo.classList.add('text-center','my-10','p-2','bg-green-500','text-white','font-bold','uppercase')
+
+       //inserta parrafo antes de spinner
+       formulario.insertBefore(parrafo,spinner);
+
+       setTimeout(()=>{
+           parrafo.remove();// elimina mensaje de exito
+           resetearFormulario();
+           iniciarApp();
+       },3000);
+    },3000);
+
+}
+
+function resetearFormulario(){
+    formulario.reset();
 }
 
