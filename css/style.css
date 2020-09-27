@@ -1,18 +1,16 @@
-body{
-    background:blue;
-    background: -webkit-linear-gradient(to right, #185a9d, #9b43ce);
-    background: linear-gradient(to right, #185a9d, #901cbe); 
+body {
+    background: #43cea2;
+    background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
+    background: linear-gradient(to right, #185a9d, #43cea2); 
 }
 
 .tamaño{
     width: 340px;
     height: 230px;
 }
-.container{
-    margin-left: 15%;
-    margin-right: 15%;
-}
 
-.nav-link.active{
-    color: white;
+
+.nav-link.activo{
+    color: #000;
+    outline: 0 none;
 }

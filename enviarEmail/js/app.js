@@ -1,6 +1,7 @@
 //variables
 //usa un frame work de ccs que no es bootstrap
 const btnEnviar = document.querySelector('#enviar');
+const eR = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,4}))$/;
 
 //variables para campos del form
 
@@ -9,7 +10,7 @@ const asunto = document.querySelector('#asunto');
 const mensaje = document.querySelector('#mensaje');
 const formulario = document.querySelector('#enviar-mail');
 let error = document.querySelector('p.error');
-let alinear = document.querySelectorAll('.material-icons.alinear.mensaje');
+let alinear = document.querySelector('.material-icons.alinear.mensaje');
 console.log(error);
 
 
@@ -21,9 +22,9 @@ function eventListeners() {
     document.addEventListener('DOMContentLoaded', iniciarApp);
 
     //campos del form
-    email.addEventListener('click', validarForm);
-    asunto.addEventListener('click', validarForm);
-    mensaje.addEventListener('click', validarForm);
+    email.addEventListener('blur', validarForm);
+    asunto.addEventListener('blur', validarForm);
+    mensaje.addEventListener('blur', validarForm);
 }
 //funciones
 function iniciarApp() {
@@ -33,8 +34,8 @@ function iniciarApp() {
 
 
 function validarForm(e) {
+    //e.target.addEventListener('input',validarForm);
     e.target.addEventListener('input',validarForm);
-    
     console.log(e.target);
     if (e.target.value.length > 0) {
 
@@ -66,7 +67,6 @@ function validarForm(e) {
                 error.remove();
             }
             let alinear = document.querySelectorAll('.material-icons.alinear.asunto');
-           
             if(alinear.length === 0){
                 icono('asunto');
         }
@@ -81,7 +81,12 @@ function validarForm(e) {
         }
     }
     validarEmail(e);
-
+if(eR.test(email.value)  && asunto.value !=='' && mensaje.value!==''){
+    btnEnviar.disabled = false;
+    btnEnviar.classList.remove('cursor-not-allowed', 'opacity-50')
+}else{
+    console.log('no pasaste la validacion');    
+}
 }
 
 //funcion de icono
@@ -96,7 +101,7 @@ function icono(id){
 
 function validarEmail(e){
     if (e.target.type === 'email') {
-        const eR = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+       
 
         if (eR.test(e.target.value)) {
            error = document.querySelector('p.error');
