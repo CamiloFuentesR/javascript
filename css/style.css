@@ -17,16 +17,21 @@ body {
 
 .card-title{
     position: static;
-    height: 45px ;
-    width: 95%;
+    min-height: 45px ;
+    width: 100%;
+    max-height: 45px ;
+
     word-wrap: break-word;
     overflow: auto;
 }
 .card-text{
     position: static;
+    font-size: medium;
     word-wrap: break-word;
-    width: 95%;
+    width: 100%;
     min-height: 45px ;
+    max-height: 45px ;
+
     overflow: auto;
 
 
