@@ -46,6 +46,7 @@ body {
     text-align: center;
     transition: all 0.25s;
     align-items: center;
+    
 }
 
 .container .card:hover{
@@ -68,6 +69,9 @@ body {
     padding: 0 1rem;
     font-size: 16px;
     font-weight: 300;
+    max-height:45% ;
+    overflow: hidden;
+    text-overflow: ;
 }
 
 .container .card a{
