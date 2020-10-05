@@ -100,6 +100,10 @@ if(eR.test(email.value)  && asunto.value !=='' && mensaje.value!==''){
 }else{
     console.log('no pasaste la validacion');    
 }
+if(email.classList.contains('border-red-500')  || asunto.value ===''|| mensaje.value===''){
+    btnEnviar.disabled = true;
+    btnEnviar.classList.add('cursor-not-allowed', 'opacity-50')
+}
 }
 
 //funcion de icono
