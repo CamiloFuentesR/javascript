@@ -51,6 +51,23 @@ form {
     padding: 3rem 0;
 }
 
+ /*agregar icono de error en las barras*/
+input.error{
+    background-image: url(/enviarEmail/images/alert.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 98%;
+    top: auto;
+    
+}
+
+textarea.error{
+    background-image: url(/enviarEmail/images/alert.png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 98% 10px;
+}
+/*---------------------------------------------------*/
 
 .sk-chase {
     width: 40px;
@@ -85,6 +102,15 @@ form {
       color: red;
       font-size: 200%;
       
+}
+
+.mensaje .alinear{  /*alinea el icono de mensje*/
+    position: relative;
+    left: 90%;
+    top: -72px;
+    color: red;
+    font-size: 200%;
+    
 }
    
    textarea:focus, input:focus, input[type]:focus {

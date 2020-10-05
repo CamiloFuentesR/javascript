@@ -4,6 +4,8 @@ const btnEnviar = document.querySelector('#enviar');
 const btnReset = document.querySelector('#resetBtn');
 const eR = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,4}))$/;
 
+const eREspacios =  /^\S*$/;
+
 //variables para campos del form
 
 const email = document.querySelector('#email');
@@ -11,7 +13,7 @@ const asunto = document.querySelector('#asunto');
 const mensaje = document.querySelector('#mensaje');
 const formulario = document.querySelector('#enviar-mail');
 let error = document.querySelector('p.error');
-let alinear = document.querySelector('.material-icons.alinear.mensaje');
+//let alinear = document.querySelector('.material-icons.alinear.mensaje');
 //console.log(error);
 
 
@@ -25,7 +27,7 @@ function eventListeners() {
 
     //campos del form
     email.addEventListener('blur', validarForm);
-    email.addEventListener('input',validarForm);
+    //email.addEventListener('input',validarForm);
     asunto.addEventListener('blur', validarForm);
     mensaje.addEventListener('blur', validarForm);
     formulario.addEventListener('submit',enviarEmail);
@@ -43,7 +45,7 @@ function validarForm(e) {
     //e.target.addEventListener('input',validarForm);
     e.target.addEventListener('input',validarForm);
     //console.log(e.target);
-    if (e.target.value.length > 0) {
+    if (e.target.value.trim() !== "" && eREspacios.test(e.target.value)) { /*agregandole la eREspacios, no se permiten espacion en toda la cadena y el trim es para no permitir cadenas vacias */
 
         error = document.querySelector('p.error');
         if (error) {
@@ -51,23 +53,34 @@ function validarForm(e) {
         }
         let errorI =document.querySelector(`i.${e.target.id}`);
         if(errorI){
-        errorI.remove();
+        errorI.remove();// remueve el icono
         }
         
-        e.target.classList.remove('border', 'border-red-500');
+        e.target.classList.remove('border', 'border-red-500','error');
         e.target.classList.add('border', 'border-green-500');
        
     } else {
         
         e.target.classList.remove('border', 'border-green-500');
-        e.target.classList.add('border', 'border-red-500');
+        e.target.classList.add('border', 'border-red-500','error');
         if(e.target.type === 'email'){
              error = document.querySelector('p.error');
             if (error) {
                 error.remove();
             }
             mostrarError('El campo Email esta vacío');
-        }else if(e.target.id === 'asunto'){
+        }else if(e.target.id === 'mensaje'){
+            error = document.querySelector('p.error');
+            if (error) {
+                error.remove();
+            }
+            let alinear = document.querySelectorAll('.material-icons.alinear.mensaje');
+            if(alinear.length === 0){
+                icono('mensaje');
+        }
+            mostrarError('El campo Mensaje esta vacío');
+        }
+        else if(e.target.id === 'asunto'){
            error = document.querySelector('p.error');
             if (error) {
                 error.remove();
@@ -77,14 +90,8 @@ function validarForm(e) {
                 icono('asunto');
         }
         
-            mostrarError('El campo Asunto ');
-        } else if(e.target.id === 'mensaje'){
-            error = document.querySelector('p.error');
-            if (error) {
-                error.remove();
-            }
-            mostrarError('El campo Mensaje esta vacío');
-        }
+            mostrarError('El campo Asunto esta vacio');
+        } 
     }
     validarEmail(e);
 if(eR.test(email.value)  && asunto.value !=='' && mensaje.value!==''){
@@ -97,11 +104,13 @@ if(eR.test(email.value)  && asunto.value !=='' && mensaje.value!==''){
 
 //funcion de icono
 function icono(id){
-    let icono = document.createElement('i');
-        let iconoEmail = document.querySelector(`.${id}`);
+    /* let icono = document.createElement('i');
+        
         iconoEmail.appendChild(icono);
         icono.classList.add('material-icons','alinear',`${id}`);
-        icono.textContent = 'error';
+        icono.textContent = 'error'; */
+        let iconoEmail = document.querySelector(`#${id}`);
+       // iconoEmail.classList.add('error',`${id}`);
 
 }
 
@@ -124,16 +133,16 @@ function validarEmail(e){
                 icono('email');
         }
             e.target.classList.remove('border', 'border-green-500');
-            e.target.classList.add('border', 'border-red-500');
+            e.target.classList.add('border', 'border-red-500','error');
             mostrarError('El email no es válido');
         }
     }
 }
 
-function mostrarError(mensaje) {
+function mostrarError(msj) {
     const mensajeError = document.createElement('p');
 
-    mensajeError.textContent = mensaje;
+    mensajeError.textContent = msj;
     mensajeError.classList.add('border', 'border-red-500', 'background-red-100', 'text-red-500', 'p-3', 'mt-5', 'text-center', 'error');
 
     const errores = document.querySelectorAll('.error');
