@@ -52,7 +52,7 @@ form {
 }
 
  /*agregar icono de error en las barras*/
-input.error{
+input.erro{
     background-image: url(/enviarEmail/images/alert.png);
     background-size: 40px;
     background-repeat: no-repeat;
