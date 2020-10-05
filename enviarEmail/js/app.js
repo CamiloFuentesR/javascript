@@ -51,18 +51,18 @@ function validarForm(e) {
         if (error) {
             error.remove();
         }
-        let errorI =document.querySelector(`i.${e.target.id}`);
+      /*   let errorI =document.querySelector(`i.${e.target.id}`);
         if(errorI){
         errorI.remove();// remueve el icono
-        }
+        } */
         
-        e.target.classList.remove('border', 'border-red-500','error');
+        e.target.classList.remove('border', 'border-red-500','erro');
         e.target.classList.add('border', 'border-green-500');
        
     } else {
         
         e.target.classList.remove('border', 'border-green-500');
-        e.target.classList.add('border', 'border-red-500','error');
+        e.target.classList.add('border', 'border-red-500','erro');
         if(e.target.type === 'email'){
              error = document.querySelector('p.error');
             if (error) {
@@ -74,10 +74,10 @@ function validarForm(e) {
             if (error) {
                 error.remove();
             }
-            let alinear = document.querySelectorAll('.material-icons.alinear.mensaje');
+         /*    let alinear = document.querySelectorAll('.material-icons.alinear.mensaje');
             if(alinear.length === 0){
                 icono('mensaje');
-        }
+        } */
             mostrarError('El campo Mensaje esta vacío');
         }
         else if(e.target.id === 'asunto'){
@@ -85,11 +85,11 @@ function validarForm(e) {
             if (error) {
                 error.remove();
             }
-            let alinear = document.querySelectorAll('.material-icons.alinear.asunto');
+          /*   let alinear = document.querySelectorAll('.material-icons.alinear.asunto');
             if(alinear.length === 0){
                 icono('asunto');
         }
-        
+         */
             mostrarError('El campo Asunto esta vacio');
         } 
     }
@@ -103,16 +103,16 @@ if(eR.test(email.value)  && asunto.value !=='' && mensaje.value!==''){
 }
 
 //funcion de icono
-function icono(id){
-    /* let icono = document.createElement('i');
+/* function icono(id){
+    let icono = document.createElement('i');
         
         iconoEmail.appendChild(icono);
         icono.classList.add('material-icons','alinear',`${id}`);
-        icono.textContent = 'error'; */
+        icono.textContent = 'error'; 
         let iconoEmail = document.querySelector(`#${id}`);
        // iconoEmail.classList.add('error',`${id}`);
 
-}
+} */
 
 function validarEmail(e){
     if (e.target.type === 'email') {
@@ -127,13 +127,13 @@ function validarEmail(e){
             e.target.classList.remove('border', 'border-red-500');
             e.target.classList.add('border', 'border-green-500');
         } else {
-            let alinear = document.querySelectorAll('.material-icons.alinear.email');
+       /*      let alinear = document.querySelectorAll('.material-icons.alinear.email');
            
             if(alinear.length === 0){
                 icono('email');
-        }
+        } */
             e.target.classList.remove('border', 'border-green-500');
-            e.target.classList.add('border', 'border-red-500','error');
+            e.target.classList.add('border', 'border-red-500','erro');
             mostrarError('El email no es válido');
         }
     }
