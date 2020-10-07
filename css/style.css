@@ -37,8 +37,8 @@ body {
 
 .container .card{
 
-    width: 330px;
-    height: 430px;
+    width: 30vw;
+    height: 35vw;
     border-radius: 25px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     overflow: hidden;
@@ -55,21 +55,21 @@ body {
 }
 
 .container .card img{
-    width: 330px;
-    height: 220px;
+    width: 20vw;
+    height: 15vw;
     align-items: center;
 
 }
 
 .container .card h4{
-    font-weight: 600;
+    font-weight: 1vw;
 }
 
 .container .card p{
     padding: 0 1rem;
-    font-size: 16px;
-    font-weight: 300;
-    max-height:45% ;
+    font-size: 1.5vw;
+    font-weight: 1vw;
+    max-height:4vw ;
     overflow: hidden;
     text-overflow: ;
 }
@@ -81,7 +81,7 @@ body {
     text-align: center;
     padding:  10px;
     color: #24bfcc;
-    width: 45%;
+    width: 2vw;
     border-radius: 9px;
 
     
