@@ -76,14 +76,17 @@ body {
 }
 
 .container .card a{
-    font-weight: 500;
+    font-weight: 3vw;
+    font-size: 2vw;
     text-decoration: none;
     border: 1px solid ;
     text-align: center;
-    padding:  10px;
+    padding:  2vw;
     color: #24bfcc;
-    width: 2vw;
-    border-radius: 9px;
+    width: 1vw;
+    height: 2vw;
+    border-radius: 1vw;
+    
 
     
 }
