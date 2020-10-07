@@ -68,11 +68,14 @@ body {
 
 .container .card p{
     padding: 0 1rem;
-    font-size: 2.3vw;
+    font-size: 2.5vw;
     font-weight: 1vw;
-    max-height:7vw ;
-    overflow: hidden;
-    text-overflow: ;
+    max-height: 9vw ;
+    min-height: 9vw ;
+    overflow: auto;
+    text-overflow:  ;
+    bottom: 50px;
+    padding: 2vw;
 }
 
 .container .card a{
@@ -81,11 +84,12 @@ body {
     text-decoration: none;
     border: 1px solid ;
     text-align: center;
-    padding:  2vw;
+    padding: 1.5vw;
     color: #24bfcc;
-    width: 1vw;
-    height: 2vw;
+    width: 10vw;
+    height: 10vw;
     border-radius: 1vw;
+    
     
 
     
