@@ -63,12 +63,12 @@ body {
 
 .container .card h4{
     font-weight: 1vw;
-    font-size: 3vw;
+    font-size: 4vw;
 }
 
 .container .card p{
     padding: 0 1rem;
-    font-size: 2.5vw;
+    font-size: 3vw;
     font-weight: 1vw;
     max-height: 9vw ;
     min-height: 9vw ;
