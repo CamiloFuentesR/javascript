@@ -7,7 +7,7 @@ body {
    /*  background: #43cea2;
     background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
     background: linear-gradient(to right, #185a9d, #43cea2);  */
-    background-image: url(/images/3d.jpg);
+    background-color: rgba(4, 7, 7, 0.918);
     background-size: 100%;
     width: 100%;
     height: 100%;
@@ -20,7 +20,7 @@ body {
 .title{
     text-align: center; 
     font-size: 5vw;
-    color: #6a6a6a;
+    color: #dfd7d7;
     margin-top: 100px; 
     font-weight: 100;
 }
@@ -41,7 +41,7 @@ body {
     width: 38vw;
     height: 50vw;
     border-radius: 3vw;
-    box-shadow: 0 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px rgba(145, 135, 135, 0.918);
     overflow: hidden;
     margin: 2vw; /*separacion entre cards*/
     text-align: center;
@@ -52,7 +52,7 @@ body {
 
 .container .card:hover{
     transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(0, 0, 0,0.2);
+    box-shadow: 0 12px 16px rgba(133, 122, 122, 0.952);
 }
 
 .container .card img{
@@ -101,19 +101,21 @@ body {
 
 }
 
-
+.nav-link{
+    color: rgb(161, 142, 142);
+}
 
 /* .tamaño{
     width: 340px;
     height: 230px;
 }
+*/
 
-
-.nav-link.activo{
-    color: #000;
+.nav-link:hover{
+    color: rgb(255, 255, 255);
     outline: 0 none;
 }
-
+/*
 .card-title{
     position: static;
     min-height: 45px ;
