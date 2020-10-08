@@ -7,7 +7,8 @@ body {
    /*  background: #43cea2;
     background: -webkit-linear-gradient(to right, #185a9d, #43cea2);
     background: linear-gradient(to right, #185a9d, #43cea2);  */
-    background: #F4F6FA;
+    background-image: url(/images/3d.jpg);
+    background-size: 100%;
     width: 100%;
     height: 100%;
     font-family: sans-serif;
