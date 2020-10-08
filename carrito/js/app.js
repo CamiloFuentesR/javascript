@@ -4,6 +4,7 @@ const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarrito = document.querySelector('#vaciar-carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 const buscar = document.querySelector('.submit-buscador');
+const buscadorInput = document.querySelector('#buscador');
 let articulosCarritos = [];
 console.log(contenedorCarrito);
 cargarEvenListener();
@@ -16,11 +17,15 @@ function cargarEvenListener() {
     vaciarCarrito.addEventListener('click',()=>{
         articulosCarritos = [],
         limpiarHTML();
-    })
-}
+    });
     buscar.addEventListener('click',(e)=>{
         e.preventDefault();
+        alert(buscadorInput.value);
+        buscadorInput.value = '';
     })
+
+}
+
 //funciones
 function agregarCurso(e) {
     e.preventDefault();
