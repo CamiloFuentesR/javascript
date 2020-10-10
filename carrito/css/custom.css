@@ -143,6 +143,8 @@ ul {
 
 .card {
     text-align: center;
+    min-height: 420px ;
+    max-height: 420px ;
     border: 1px solid #e1e1e1;
     background: white;
 }

@@ -21,26 +21,51 @@ function cargarEvenListener() {
         e.preventDefault();
         alert(buscadorInput.value);
         buscadorInput.value='';
-    });
-
-    //muestra los cursos de localStorage
-    document.addEventListener('DOMContentLoaded',() =>{
-
-    articulosCarritos = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    carritoHTML();
-});
-    
+    })
 }
 
 //funciones
 function agregarCurso(e) {
     e.preventDefault();
-    if (e.target.classList.contains('agregar-carrito')) { // devuelve un true o false
+    if (e.target.classList.contains('agregar-carrito')) {
         const CursoSelecionado = e.target.parentElement.parentElement;
         leerDatoCurso(CursoSelecionado);
     }
 }
+
+function eliminarCurso(e){
+    //const cursoId = e.target.getAttribute('data-id') ;
+    //console.log(cursoId);
+     if(carrito.children[0].children[1].children[0]){
+        const contador =carrito.children[0].children[1].children[0].children[3].textContent;
+   //para eliminar de uno a uno
+    if( contador > 1){ 
+        //e.target.parentElement.parentElement.children[3].textContent--; //asi solo lo elimina de la vista;
+        //console.log(articulosCarritos);//array defiido arriba que guarda los objetos en el carrito;
+         const cursoss = articulosCarritos.map(curso => { //map permite guardr el arreglo en una variable
+            if (curso.id === idCarrito(e)) {
+                curso.cantidad--;
+                return curso;
+            }else {
+                return curso;
+            }
+        })
+        articulosCarritos = [...cursoss];
+        carritoHTML(); 
+        //elimina del arreglo articulos por el data id
+    }else if(contador <= 1){
+    articulosCarritos = articulosCarritos.filter(curso => curso.id !== idCarrito(e) );
+    carritoHTML();
+    }   
+}
+    
+}
+
+function idCarrito(e){
+    const id = e.target.getAttribute('data-id');
+    return id;
+}
+//leer el cotenido del html  y extrae la info del curso 
 function leerDatoCurso(curso) {
     //crear objeto con el contenido del curso
     const infoCurso = {
@@ -72,9 +97,10 @@ function leerDatoCurso(curso) {
     carritoHTML();
 
 }
+
+//muestra el carrito de compras en el HTML
 function carritoHTML() {
     //limpiar el HTML
-    //console.log(contenedorCarrito)
     limpiarHTML(); //si no se usa, al aregar un item, aparece el nuevo y el anterior por separado, no se suma solo el nuevo.
 
     //recorre el carrito y genera el HTML
@@ -90,55 +116,8 @@ function carritoHTML() {
         `;
         //agrega HTML del carrito en el tbody
         contenedorCarrito.appendChild(row);
-    });
-    sincronizarLocalStorage();
+    })
 }
-
-function sincronizarLocalStorage(){
-    localStorage.setItem('carrito',JSON.stringify(articulosCarritos));
-}
-
-function eliminarCurso(e){
-    //const cursoId = e.target.getAttribute('data-id') ;
-    //console.log(cursoId);
-     if(/* carrito.children[0].children[1].children[0] &&  */e.target.getAttribute('data-id')){ //solo actua si encuentra un data-id al hacer click
-
-        // const contador =carrito.children[0].children[1].children[0].children[3].textContent;
-        const contador =e.target.parentElement.parentElement.children[3].textContent;
-        console.log(e.target.parentElement.parentElement.children[3].textContent);
-   //para eliminar de uno a uno
-    if( contador > 1){ 
-        //e.target.parentElement.parentElement.children[3].textContent--; //asi solo lo elimina de la vista;
-        //console.log(articulosCarritos);//array defiido arriba que guarda los objetos en el carrito;
-        console.log(idCarrito(e));
-         const cursoss = articulosCarritos.map(curso => { //map permite guardr el arreglo en una variable
-            if (curso.id === idCarrito(e)) {
-                curso.cantidad--;
-                return curso;
-            }else {
-                return curso;
-            }
-        })
-        articulosCarritos = [...cursoss];
-        carritoHTML(); 
-        //elimina del arreglo articulos por el data id
-    }else if(contador <= 1){
-    articulosCarritos = articulosCarritos.filter(curso => curso.id !== idCarrito(e) );
-    carritoHTML();
-    }   
-}
-    
-}
-
-function idCarrito(e){
-    const id = e.target.getAttribute('data-id');
-    return id;
-}
-//leer el cotenido del html  y extrae la info del curso 
-
-
-//muestra el carrito de compras en el HTML
-
 
 //eliimina los cursos del tbdy
 function limpiarHTML() {
@@ -147,5 +126,4 @@ function limpiarHTML() {
     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
     }
-    sincronizarLocalStorage();
 }
