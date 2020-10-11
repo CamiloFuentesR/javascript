@@ -15,7 +15,7 @@ cargarEvenListener();
 function cargarEvenListener() {
     body.addEventListener('click',(e)=>{
 
-        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' && e.target.id !== 'img-carrito' && e.target.id !== ''){
+        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' && e.target.id !== 'img-carrito' && e.target.id !== '' && e.target.id !== 'vaciar-carrito'){
             carrito.classList.remove('abrir');
             console.log(e.target.id);
         }
