@@ -51,7 +51,7 @@ ul {
 .submenu #carrito{
     display: none;
 }
-.submenu:hover #carrito{
+.submenu #carrito.abrir{
     display: block;
     position: absolute;
     right:0;

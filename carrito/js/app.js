@@ -1,5 +1,6 @@
 //variables
 const carrito = document.querySelector('#carrito');
+const abrirCarrito = document.querySelector('#img-carrito');
 const contenedorCarrito = document.querySelector('#lista-carrito tbody');
 const vaciarCarrito = document.querySelector('#vaciar-carrito');
 const listaCursos = document.querySelector('#lista-cursos');
@@ -22,6 +23,15 @@ function cargarEvenListener() {
         alert(buscadorInput.value);
         buscadorInput.value='';
     });
+    abrirCarrito.addEventListener('click',()=>{
+        
+        if(carrito.classList.contains('abrir')){
+            carrito.classList.remove('abrir');
+        }else{
+            carrito.classList.add('abrir');
+
+        }
+    })
 
     //muestra los cursos de localStorage
     document.addEventListener('DOMContentLoaded',() =>{
