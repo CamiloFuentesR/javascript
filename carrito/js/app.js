@@ -29,7 +29,7 @@ function cargarEvenListener() {
  /*    if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' ){
         carrito.classList.remove('abrir');
     } */
-    abrirCarrito.addEventListener('mouseenter',(e)=>{
+    abrirCarrito.addEventListener('click',(e)=>{
         
         if(carrito.classList.contains('abrir') ){
             carrito.classList.remove('abrir');
