@@ -7,20 +7,21 @@ const listaCursos = document.querySelector('#lista-cursos');
 const buscar = document.querySelector('.submit-buscador');
 const buscadorInput = document.querySelector('#buscador');
 const body = document.querySelector('body');
+const cerrarCarrito = document.querySelector('.abrir');
 
 let articulosCarritos = [];
 
 cargarEvenListener();
 
 function cargarEvenListener() {
-    body.addEventListener('click',(e)=>{
+ /*    body.addEventListener('click',(e)=>{
 
-        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' && e.target.id !== 'img-carrito' && e.target.id !== '' && e.target.id !== 'vaciar-carrito'){
+        if(carrito.classList.contains('abrir') && e.target.classList !== 'abrir' && e.target.id !== 'carrito' && e.target.id !== 'img-carrito' && e.target.id !== '' && e.target.id !== 'vaciar-carrito'  || e.target.classList.contains('barra') || e.target.classList.contains('row') || e.target.classList.contains('six')){
             carrito.classList.remove('abrir');
             console.log(e.target.id);
         }
 
-    });
+    }); */
     listaCursos.addEventListener('click', agregarCurso);
     carrito.addEventListener('click',eliminarCurso);
     vaciarCarrito.addEventListener('click',()=>{
@@ -32,18 +33,19 @@ function cargarEvenListener() {
         alert(buscadorInput.value);
         buscadorInput.value='';
     });
-    if(carrito.classList.contains('abrir') && e.target.id !== 'carrito'){
+ /*    if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' ){
         carrito.classList.remove('abrir');
-    }
+    } */
     abrirCarrito.addEventListener('click',(e)=>{
         
-        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito'){
+        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' || e.target.classList.contains('barra')){
             carrito.classList.remove('abrir');
         }else{
             carrito.classList.add('abrir');
 
-        }
-    })
+        }});
+        cerrarCarrito.addEventListener('mouseleave',(e) => carrito.classList.remove('abrir'));
+    
 
     //muestra los cursos de localStorage
     document.addEventListener('DOMContentLoaded',() =>{
@@ -54,6 +56,7 @@ function cargarEvenListener() {
 });
     
 }
+
 
 //funciones
 function agregarCurso(e) {
