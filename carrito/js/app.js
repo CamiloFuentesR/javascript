@@ -6,12 +6,21 @@ const vaciarCarrito = document.querySelector('#vaciar-carrito');
 const listaCursos = document.querySelector('#lista-cursos');
 const buscar = document.querySelector('.submit-buscador');
 const buscadorInput = document.querySelector('#buscador');
+const body = document.querySelector('body');
 
 let articulosCarritos = [];
 
 cargarEvenListener();
 
 function cargarEvenListener() {
+    body.addEventListener('click',(e)=>{
+
+        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito' && e.target.id !== 'img-carrito' && e.target.id !== ''){
+            carrito.classList.remove('abrir');
+            console.log(e.target.id);
+        }
+
+    });
     listaCursos.addEventListener('click', agregarCurso);
     carrito.addEventListener('click',eliminarCurso);
     vaciarCarrito.addEventListener('click',()=>{
@@ -23,9 +32,12 @@ function cargarEvenListener() {
         alert(buscadorInput.value);
         buscadorInput.value='';
     });
-    abrirCarrito.addEventListener('click',()=>{
+    if(carrito.classList.contains('abrir') && e.target.id !== 'carrito'){
+        carrito.classList.remove('abrir');
+    }
+    abrirCarrito.addEventListener('click',(e)=>{
         
-        if(carrito.classList.contains('abrir')){
+        if(carrito.classList.contains('abrir') && e.target.id !== 'carrito'){
             carrito.classList.remove('abrir');
         }else{
             carrito.classList.add('abrir');
