@@ -71,7 +71,7 @@ body {
     font-weight: 300;
     max-height:45% ;
     overflow: hidden;
-    text-overflow: ;
+
 }
 
 .container .card a{
@@ -205,7 +205,7 @@ body {
         max-height: 13vw ;
         min-height: 13vw ;
         overflow: auto;
-        text-overflow:  ;
+        
         bottom: 50px;
         padding: 2vw;
     }
