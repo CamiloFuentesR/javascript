@@ -82,14 +82,14 @@ Ui.prototype.mostrarMensaje = (mensaje, tipo) => {
     formulario.insertBefore(div, document.querySelector('#resultado'));
     setTimeout(() => {
         div.remove();
-    }, 2300);
+    }, 1000);
 
     Ui.prototype.mostrarResultado = (total, seguro) => {
 
         //crear resultado
         const div = document.createElement('div');
         div.classList.add('mt-10');
-        const {marca,year, type} = seguro;
+        const { marca, year, type } = seguro;
         //darle valor a a marca
         let textoMarca;
         switch (marca) {
@@ -129,7 +129,7 @@ Ui.prototype.mostrarMensaje = (mensaje, tipo) => {
             spinner.style.display = 'none';
             resultadoDiv.appendChild(div);
 
-        }, 2300)
+        }, 1000)
     }
 }
 
@@ -137,9 +137,7 @@ Ui.prototype.mostrarMensaje = (mensaje, tipo) => {
 const ui = new Ui();
 console.log(ui);
 
-document.addEventListener('DOMContentLoaded', () => {
-    ui.LlenarOpciones();//llena el seelct con los años
-})
+
 
 eventListers();
 
@@ -147,11 +145,14 @@ function eventListers() {
 
     const formulario = document.querySelector('#cotizar-seguro');
     formulario.addEventListener('submit', cotizarSeguro);
+    document.addEventListener('DOMContentLoaded', () => {
+        ui.LlenarOpciones();//llena el seelct con los años
+    })
 }
 
 function cotizarSeguro(e) {
     e.preventDefault();
-//lectura de datos  -------------------------------------------------------------------------------------
+    //lectura de datos  -------------------------------------------------------------------------------------
     //leer marca
     const marca = document.querySelector('#marca').value;
 
@@ -160,9 +161,9 @@ function cotizarSeguro(e) {
 
     //leer tipo seguro
     const tipo = document.querySelector('input[name=type]:checked').value;
-// --------------------fin de lectura de datos  ---------------------------------------------------
+    // --------------------fin de lectura de datos  ---------------------------------------------------
 
-//condicional para mostrar mensaje de error ---------------------------------------------------
+    //condicional para mostrar mensaje de error ---------------------------------------------------
     if (marca === '' || year === '' || tipo === '') {
         if (document.querySelector('.error') === null) { //para que aparezca el msj solo una vez
             // console.log(document.querySelector('.error')=== null;
@@ -174,10 +175,20 @@ function cotizarSeguro(e) {
     ui.mostrarMensaje('Cotizando', 'exito')
 
     //ocultas cotizaciones previas
-    const resultado = document.querySelector('#resultado div');
+    /* const resultado = document.querySelector('#resultado div');
 
     if (resultado != null) {
         resultado.remove();
+    } */
+    //mejora del codigo de arriba
+    const resultado = document.querySelectorAll('#resultado div');
+    console.log(resultado.length);
+
+    if (resultado.length != 0) {
+        for (let i = 0; i < resultado.length; i++) {
+
+            resultado[i].remove(resultado[i]);
+        }
     }
 
     //instanciar el seguro
