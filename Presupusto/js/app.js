@@ -16,6 +16,13 @@ class Presupuesto{
         this.restante = Number(presupuesto);
         this.gasto = [];
     }
+    nuevoGasto(gasto){
+        this.gasto = [...this.gasto,gasto];
+        console.log(this.gasto);
+
+        
+
+    }
 }
 
 class Ui{
@@ -79,26 +86,44 @@ if(preguntar =='' || isNaN(preguntar) || preguntar <= 0 || preguntar === null){
 }
 
 presupuesto = new Presupuesto(preguntar); //creacion del objeto presupuesto
+
   ui.insertarPresupuesto(presupuesto);
-  //console.log(presupuesto);
+  console.log(presupuesto);
   
 }
 
 function agregarGasto(e){
     e.preventDefault();
-    const gasto = document.querySelector('#gasto').value;
-    const cantidad = document.querySelector('#cantidad').value;
-    if(gasto ==='' ||cantidad ===''){
+
+    //leer los datos del form
+    const nombreGasto = document.querySelector('#gasto').value;
+    const cantidad = Number(document.querySelector('#cantidad').value);
+    if(nombreGasto ==='' ||cantidad ===''){
         
         ui.imprimirAlerta('Debe ingresar ambos campos','error');
-       
+       return;
     }else if(isNaN(cantidad) || cantidad <= 0){
 
         ui.imprimirAlerta('Ingrese datos válidos en : "Cantidad "','error');
         console.log(typeof cantidad.textContent);
-    }else{
-    ui.imprimirAlerta('Gasto ingresado con exito','exito');
+        return;
     }
+    ui.imprimirAlerta('Gasto ingresado con exito','exito');
+    console.log('agregando gasto')
+    
+    const gasto = { nombreGasto,cantidad,id: Date.now()}  //ES6
+    presupuesto.nuevoGasto(gasto);
+    /*objeto gasto =>
+        gasto = {
+            nombreGasto : nombreGasto,
+            cantidad : cantidad,
+            id : Date.now()
+        }
+    */
+
+    //reinicia formulario
+    formulario.reset();
+    
   
 }
 

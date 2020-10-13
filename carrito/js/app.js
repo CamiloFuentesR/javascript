@@ -161,9 +161,9 @@ function idCarrito(e){
 //eliimina los cursos del tbdy
 function limpiarHTML() {
     //manera lenta
-    contenedorCarrito.innerHTML = '';
-   /*  while (contenedorCarrito.firstChild) {
+    //contenedorCarrito.innerHTML = '';
+     while (contenedorCarrito.firstChild) {
         contenedorCarrito.removeChild(contenedorCarrito.firstChild);
-    } */
+    } 
     sincronizarLocalStorage();
 }
