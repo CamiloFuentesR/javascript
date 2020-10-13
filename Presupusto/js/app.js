@@ -48,8 +48,8 @@ class Ui{
 
         }
         div.textContent = mensaje;
-
-        contenido.insertBefore(div,formulario);
+        const btn = document.querySelector('.btn-primary')
+        formulario.insertBefore(div,btn);
 
         setTimeout(()=>{
             div.remove();
