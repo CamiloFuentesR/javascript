@@ -37,7 +37,7 @@ function cargarEvenListener() {
             carrito.classList.add('abrir');
 
         }});
-        cerrarCarrito.addEventListener('mouseleave',(e) => carrito.classList.remove('abrir'));
+        cerrarCarrito.addEventListener('mouseleave',() => carrito.classList.remove('abrir'));
     
 
     //muestra los cursos de localStorage
