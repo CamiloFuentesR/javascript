@@ -58,7 +58,7 @@ p{
 button.btn-danger{
     text-align: center;
     text-decoration: solid;
-    
+    height: 5vh;
     
     font-size: 2vh;
 }
