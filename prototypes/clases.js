@@ -9,6 +9,7 @@ class Persona {
     }
 }
 
+//heredr una clase; con super se accede a los elemetos del constructor
 class Empresa extends Persona {
     constructor(nombre, saldo, telefono, email) {
         super(nombre, saldo);
