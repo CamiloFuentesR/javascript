@@ -26,7 +26,7 @@ body {
 
 .container{
     width: 100%;
-    max-width: 1200px;
+    
     height: 430px;
     display: flex;
     flex-wrap: wrap;
@@ -63,13 +63,16 @@ body {
 
 .container .card h4{
     font-weight: 600;
+    margin-top: 20px;
 }
 
 .container .card p{
     padding: 0 1rem;
     font-size: 16px;
     font-weight: 300;
-    max-height:45% ;
+    max-height:100px ;
+    min-height:100px ;
+
     overflow: hidden;
 
 }
