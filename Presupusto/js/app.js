@@ -170,7 +170,7 @@ function agregarGasto(e) {
     let ingresarMax = 0;
     ingresarMax = Number(restanteMinimo.textContent) - Number(ingresarCantidad.value);
 
-    if (ingresarMax <= 0) {
+    if (ingresarMax < 0) {
 
         // alert('excede el maximo');
         ui.imprimirAlerta('Excede el maximo', 'error');
