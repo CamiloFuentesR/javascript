@@ -31,7 +31,9 @@ class Presupuesto {
 
         const gastado = this.gastos.reduce((total, gasto) => total + gasto.cantidad, 0)//gasto es el nombre que se le asignaa al objeto, puede ser cuaquier nombre.
         this.restante = this.presupuesto - gastado;
-      
+        if (this.restante < 0) {
+            console.log('no puedes gastar mas de lo que tienes');
+        }
     }
 
     eliminarGasto(id) {
