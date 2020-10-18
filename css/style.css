@@ -63,7 +63,7 @@ body {
 
 .container .card h4{
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .container .card p{
@@ -199,6 +199,8 @@ body {
     .container .card h4{
         font-weight: 1vw;
         font-size: 3.7vw;
+        margin-top: 3px;
+
     }
     
     .container .card p{
