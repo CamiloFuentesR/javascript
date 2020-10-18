@@ -33,7 +33,7 @@ export function nuevaCita(e) {
 
     //validar
     if (mascota === '' || propietario === '' || telefono === '' || fecha === '' || hora === '' || sintomas === '') {
-        ui.mostrarAlerta('Todos los camppos deben estar completos', 'error');
+        ui.mostrarAlerta('Todos los campos deben estar completos', 'error');
         return;
     }
     //Preguntar si esta en modo edicion o crecion
