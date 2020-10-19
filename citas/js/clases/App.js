@@ -1,4 +1,4 @@
-import {datosCita,nuevaCita } from '../funciones.js'
+import {crearDB, datosCita,nuevaCita } from '../funciones.js'
 import {mascotaInput,propietarioInput,fechaInput,telefonoInput,horaInput,sintomasInput,formulario} from '../selectores.js'
 export class App{
     constructor(){
@@ -15,5 +15,15 @@ export class App{
 
         //formulario para nuevas citas
         formulario.addEventListener('submit', nuevaCita);
+
+        window.onload = () =>{
+            crearDB();
+            console.log('windows');
+
+        
+        }
+        
     }
+    
 }
+
