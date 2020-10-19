@@ -18,9 +18,10 @@ export class App{
 
         
         //se ejecuta cuando se abre la ventana
-        window.onload = () =>{
-            crearDB();
-        }
+        crearDB();
+        // window.onload = () =>{
+           
+        // }
         
     }
     

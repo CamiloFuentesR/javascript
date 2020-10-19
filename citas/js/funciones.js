@@ -1,8 +1,9 @@
-
-import { ui,administrarCitas } from './clases/Ui.js'
+import { Citas } from './clases/Citas.js';
+import { UI } from './clases/Ui.js'
 import { mascotaInput, propietarioInput, fechaInput, telefonoInput, horaInput, sintomasInput, formulario } from './selectores.js'
 
-
+export const ui = new UI();
+export const administrarCitas = new Citas();
 
 
 let editando;
