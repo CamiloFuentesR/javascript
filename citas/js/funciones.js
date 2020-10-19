@@ -1,8 +1,8 @@
 import { Citas } from './clases/Citas.js';
 import { UI } from './clases/Ui.js'
-import { mascotaInput, propietarioInput, fechaInput, telefonoInput, horaInput, sintomasInput, formulario, alertas } from './selectores.js'
+import { mascotaInput, propietarioInput, fechaInput, telefonoInput, horaInput, sintomasInput, formulario } from './selectores.js'
 
-const ui = new UI();
+export const ui = new UI();
 const administrarCitas = new Citas();
 
 
@@ -171,7 +171,7 @@ export function cargarEdicion(cita) {
 
 }
 
-export function crearDB() { 
+ export function crearDB() { 
     const crearDB = window.indexedDB.open('citas', 1);
 
     crearDB.onerror = function () {
@@ -179,7 +179,7 @@ export function crearDB() {
     }
 
     crearDB.onsuccess = function () {
-        console.log('Creada con exito');
+        // console.log('Creada con exito');
         DB = crearDB.result;
         
 

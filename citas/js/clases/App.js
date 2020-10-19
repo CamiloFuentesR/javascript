@@ -16,11 +16,10 @@ export class App{
         //formulario para nuevas citas
         formulario.addEventListener('submit', nuevaCita);
 
+        
+        //se ejecuta cuando se abre la ventana
         window.onload = () =>{
             crearDB();
-            console.log('windows');
-
-        
         }
         
     }
