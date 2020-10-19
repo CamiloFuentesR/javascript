@@ -2,6 +2,8 @@
 
 import { cargarEdicion, eliminarCita, DB } from '../funciones.js'
 import { citasUl, alertas } from '../selectores.js'
+export const ui = new UI();
+export const administrarCitas = new Citas();
 export class UI {
 
     mostrarAlerta(mensaje, tipo) {
