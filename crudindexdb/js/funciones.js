@@ -11,6 +11,7 @@ function imprimirAlerta(mensaje,tipo){
         submit.disabled =true;//para que no se apriete el boton cuando ya hay una alerta
 
     }else{
+        submit.disabled =true;
         mostrarAlert.classList.add('bg-green-100','border-green-400','rext-green-700');
         mostrarAlert.textContent = mensaje;
 

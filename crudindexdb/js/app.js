@@ -70,7 +70,7 @@
             });
 
             objectStore.createIndex('nombre', 'nombre', { unique: false });
-            objectStore.createIndex('correo', 'correo', { unique: true });
+            objectStore.createIndex('email', 'email', { unique: true });
             objectStore.createIndex('telefono', 'telefono', { unique: false });
             objectStore.createIndex('empresa', 'empresa', { unique: false });
             objectStore.createIndex('id', `id`, { unique: true });
