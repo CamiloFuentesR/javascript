@@ -37,6 +37,7 @@ export class UI {
 
             const cursor = e.target.result;
 
+
             if (cursor) {
                 const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cursor.value;
                 const divCita = document.createElement('div');
