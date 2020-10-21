@@ -62,15 +62,22 @@ class Ui {
         div.classList.add('text-center', 'alert')
         if (tipo === 'error') {
             div.classList.add('font-weight-bolder', 'alert-danger');
-
+          
+                formulario.querySelector('button[type="submit"]').disabled = true;
+         
         } else {
             div.classList.add('font-weight-bolder', 'alert-success');
+           
+                formulario.querySelector('button[type="submit"]').disabled = true;
+          
         }
         div.textContent = mensaje;
         const btn = document.querySelector('.btn-primary')
         formulario.insertBefore(div, btn);
 
         setTimeout(() => {
+            formulario.querySelector('button[type="submit"]').disabled = false;
+
             div.remove();
         }, 2000)
     }
@@ -90,7 +97,7 @@ class Ui {
 
             const btnBorrar = document.createElement('button');
             btnBorrar.innerHTML = 'borrar &times';
-            btnBorrar.classList.add('btn', 'btn-danger', 'borrar-gasto');
+            btnBorrar.classList.add('btn', 'btn-dark', 'borrar-gasto','btn-sm');
             btnBorrar.onclick = () => {
                 eliminarGasto(id);
             }
