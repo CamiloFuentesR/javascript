@@ -1,5 +1,6 @@
 (function () {
     const tBody = document.querySelector('#listado-clientes');
+    const vovler = document.querySelector('#volver');
     let DB;
 
     document.addEventListener('DOMContentLoaded', ()=>{
@@ -10,8 +11,7 @@
 
     }); 
     tBody.addEventListener('click',eliminarCliente);
-
-
+    vovler.addEventListener('click',()=>{window.location = '/'});
     function eliminarCliente(e){
         if(e.target.classList.contains('eliminar')){
             const idEliminar = Number(e.target.dataset.cliente) ;
@@ -39,9 +39,7 @@
                    e.target.parentElement.parentElement.remove();
                 }
             }
-            
         }
-
     }
        
 
@@ -125,14 +123,8 @@
         `;
                 //para que al iterar pase al siguiente dato
                 cursor.continue();
-
-
             }
         }
-
-
-
     }
-
 
 })();

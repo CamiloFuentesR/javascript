@@ -1,7 +1,7 @@
 body {
-    background: #000428;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #004e92, #000428);  
-background: linear-gradient(to right, #004e92, #000428); 
+    background: #000000;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #525457, #000000);  
+background: linear-gradient(to right, #42464b, #000000); 
 }
 header {
     margin: 30px 0;
@@ -18,13 +18,13 @@ header {
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
-    border-color: #27ade2;  /* #cccccc   mismo color original */
+    border-color: #000000;  /* #cccccc   mismo color original */
 } 
 
 /* .form-control:focus{ border-color: #cccccc; -webkit-box-shadow: none; box-shadow: none; }  */
 
 .contenido-principal {
-    background-color: white;
+    background-color: rgba(102, 97, 97, 0.76);
     padding: 30px;
     border-radius: 20px;
 }

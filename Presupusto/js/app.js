@@ -6,10 +6,12 @@ const alertRestante = document.querySelector('.restante');
 const restanteMinimo = document.querySelector('#restante');
 const alertPrsupuesto = document.querySelector('#total');
 const ingresarCantidad = document.querySelector('#cantidad');
+const volver = document.querySelector('.volver');
 listeners();
 function listeners() {
     document.addEventListener('DOMContentLoaded', preguntarPresupuesto);
     formulario.addEventListener('submit', agregarGasto);
+    volver.addEventListener('click',()=> window.location = '/');
 
 }
 
