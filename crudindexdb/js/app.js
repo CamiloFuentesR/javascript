@@ -1,6 +1,6 @@
 (function () {
     const tBody = document.querySelector('#listado-clientes');
-    const vovler = document.querySelector('#volver');
+    const volver = document.querySelector('#volver');
     let DB;
 
     document.addEventListener('DOMContentLoaded', ()=>{
@@ -11,7 +11,7 @@
 
     }); 
     tBody.addEventListener('click',eliminarCliente);
-    vovler.addEventListener('click',()=>{window.location = '/'});
+    volver.addEventListener('click',()=>{window.location = '/'});
     function eliminarCliente(e){
         if(e.target.classList.contains('eliminar')){
             const idEliminar = Number(e.target.dataset.cliente) ;
