@@ -94,28 +94,51 @@ function ciudad(e){
 function mostrarCiudad(datos,id){
     console.log(id)
     const {country} =datos;
-    const contenido = document.querySelector('#contenido');
+    const contenido = document.querySelector('#ciudad');
     let html =``;
+
     let ciudades = datos.filter(ciudad => id === ciudad.country)
+  
+    
+    ciudades.forEach(nombre => {
+        html +=`
+        <option value="${nombre.name}">${nombre.name}</option>`;
+           
+       });
+       contenido.innerHTML =html;
+       $('.select2').select2();
+
+ /*    ciudades.forEach(ciudad => {
+    let newCiudades = new Option(ciudad.name,ciudad.id,false,false);
+    $('.select2').append(newCiudades).trigger('change').select2();
+    }); */
+
+
 /*         console.log(ciudades);
- */        for(let nombre of ciudades) {
-/*             console.log(nombre.name)
- */           
-    html +=`
-    <option value="${nombre.name}">${nombre.name}</option>`;
+ */     /*    for(let nombre of ciudades) {
+           console.log(nombre.name) */
+          
+       /*    ciudades.forEach(ciudad => {
+           const ciudadSelect = document.querySelector('#ciudad');
 
-  const ciudadSelect = document.querySelector('#ciudad');
-/*
-const option =document.createElement('option');
-option.value = nombre.name;
-option.textContent = nombre.name;
-
- 
-ciudadSelect.appendChild(option) */
-
-ciudadSelect.innerHTML = html;
+            const option =document.createElement('option');
+            option.value = ciudad.name;
+            option.textContent = ciudad.name;
             
-        }
+             
+            ciudadSelect.appendChild(option) 
+
+               
+           });  */
+
+          
+ /*    */
+
+
+
+/* ciudadSelect.innerHTML = html;
+             */
+        
 
       
 
@@ -138,11 +161,16 @@ ciudadSelect.innerHTML = html;
         --------------------------------------
         `;
     });
-    contenido.innerHTML =html; */
+     */
     
   
  
 }
+
+
+        
+    
+
 
 
 
@@ -160,3 +188,4 @@ function consultarApi(ciudad,pais){
         }
     })
 }
+
