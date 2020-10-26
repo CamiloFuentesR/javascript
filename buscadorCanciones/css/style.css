@@ -36,14 +36,60 @@ h2 {
 }
 
 
-@media (min-width:768px) {
+@media (max-width:708px) {
     .contenedor {
-        display: flex;
-        flex-wrap: wrap;
+    margin-right: -45px;
+    margin-left: -50px;
+    padding: 1px;    
+    margin-bottom: -10px;
+    
     }
-    .contenedor > div {
-        flex: 1 0 50%;
+    
+
+    .resultado-busqueda{
+ /       text-align: center;
+        background-color: rgba(240, 234, 234,0.95);;
+        
+        padding: 15px;
+        margin-top: 60px;
+        margin-left: 6px;
+        margin-right: -20px;
+        font: 1em sans-serif;
+    } 
+    
+    .letra-resultado h2{
+        padding: -40px;
+        
+        
     }
+    #resultado{
+        
+    }
+     header{
+        background: url('/buscadorCanciones/img/concierto.webp');
+        min-width: 500px;
+        min-height: 2100px;
+        background-repeat: no-repeat ;
+        padding: 50px;
+        margin-bottom: -1550px;
+        
+    } 
+    body {
+        /*     background: url('/buscadorCanciones/img/musica.webp');
+         */    /* background-image: linear-gradient(to top, #1e3c72 0%, #1e3c72 1%, #2a5298 100%); */
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgba(0, 0, 0, 0.822);
+            height: 100px;
+    }
+    .contenido {
+    
+    background-color: rgba(240, 234, 234,0.7);
+    margin-right: -110px;
+    margin-left: -100px;
+    padding: -100px;
+    }
+
+
 }
 .formulario-busqueda p {
     text-align: center;
@@ -108,7 +154,7 @@ h2 {
     text-align: center;
     background-color: rgba(240, 234, 234,0.95);;
     margin: 40px 125px ;
-}
+} 
 
 .letra-resultado h2{
     padding-top: 30px;
