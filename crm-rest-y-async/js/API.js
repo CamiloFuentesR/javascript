@@ -1,4 +1,6 @@
-const url = "http://localhost:4000/clientes";
+// const url = "http://localhost:4000/clientes";
+
+const url = "https://kmikmilo.netlify.app/crm-rest-y-async/clientes";
 
 export const nuevoCliente = async cliente => {
     try {
