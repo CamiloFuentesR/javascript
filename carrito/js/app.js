@@ -68,7 +68,7 @@ function leerDatoCurso(curso) {
         id: curso.querySelector('a').getAttribute('data-id'),
         cantidad: 1
     }
-    //revisa si un elemento ya existe en el carrito
+    //revisa si un elemento ya existe en el carrito, devuelve un true
     const existe = articulosCarritos.some(curso => curso.id === infoCurso.id);
     //console.log(curso.id);
     if (existe) {
