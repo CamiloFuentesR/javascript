@@ -55,7 +55,7 @@ export const eliminarCliente = async id => {
 
 export const obtenerCliente = async id => {
     try {
-        const resultado = await fetch(`${url}/${id}`);
+        const resultado = await fetch(`${url2}/${id}`);
         const cliente = await resultado.json();
         return cliente;
         
