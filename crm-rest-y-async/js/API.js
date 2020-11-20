@@ -70,6 +70,7 @@ export const obtenerCliente = async id => {
         const resultado = await fetch(url);
         const cliente = await resultado.json();
         const cli = cliente.clientes;
+        console.log(cli)
         const cl = cli.filter(cliente => {
             cliente.id === id ;
         });
