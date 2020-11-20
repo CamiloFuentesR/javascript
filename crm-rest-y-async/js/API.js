@@ -73,6 +73,7 @@ export const obtenerCliente = async id => {
         console.log(cli)
         
         const m = cli.filter(cliente => cliente.id === id)
+        console.log(m)
      
         
         return m;
