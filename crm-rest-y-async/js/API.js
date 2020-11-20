@@ -71,7 +71,7 @@ export const obtenerCliente = async id => {
         const cliente = await resultado.json();
         const cli = cliente.clientes;
         console.log(cli)
-        const id;
+        
          cli.forEach(cliente => {
              console.log(cliente.id);
          })
