@@ -69,10 +69,10 @@ export const obtenerCliente = async id => {
     try {
         const resultado = await fetch(url);
         const cliente = await resultado.json();
-        const cli = cliente.clientes;
+        const cli = await cliente.clientes;
         console.log(cli)
         
-        const m = cli.filter(cliente => cliente.id === id)
+        const m = await cli.filter(cliente => cliente.id === id)
         console.log(m)
         const me = await m.json();
         
