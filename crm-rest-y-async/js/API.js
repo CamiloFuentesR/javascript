@@ -7,7 +7,7 @@
 export const nuevoCliente = async cliente => {
     console.log(cliente)
     try {
-        await fetch(url2, {
+        await fetch(url, {
             method: 'POST',
             body: JSON.stringify(cliente),  //se puede mandar como json o como objeto, en este caso coomo json
             headers:{
@@ -39,7 +39,7 @@ export const eliminarCliente = async id => {
 
     try {
 
-        await fetch(`${url2}/${id}`, {
+        await fetch(`${url}/${id}`, {
             method: 'DELETE',
         });
         window.location.href = 'index.html'; 
@@ -55,7 +55,7 @@ export const eliminarCliente = async id => {
 
 export const obtenerCliente = async id => {
     try {
-        const resultado = await fetch(`${url2}/${id}`);
+        const resultado = await fetch(`${url}/${id}`);
         const cliente = await resultado.json();
         return cliente;
         
