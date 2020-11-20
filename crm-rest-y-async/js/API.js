@@ -73,10 +73,10 @@ export const obtenerCliente = async id => {
         console.log(cli)
         
         const m = await cli.filter(cliente => cliente.id === id)
-        console.log(m)
-        const me = await m.json();
+        // console.log(m)
         
-        return me;
+        
+        return m;
         
     } catch (error) {
         console.error(error);
