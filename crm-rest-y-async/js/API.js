@@ -5,6 +5,7 @@
 
 
 export const nuevoCliente = async cliente => {
+    console.log(cliente)
     try {
         await fetch(url, {
             method: 'POST',
@@ -54,7 +55,7 @@ export const eliminarCliente = async id => {
 
 export const obtenerCliente = async id => {
     try {
-        const resultado = await fetch(`${url2}/${id}`);
+        const resultado = await fetch(`${url}/${id}`);
         const cliente = await resultado.json();
         return cliente;
         
