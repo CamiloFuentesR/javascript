@@ -117,9 +117,9 @@ function sincronizarLocalStorage(){
 }
 
 function eliminarCurso(e){
-    //const cursoId = e.target.getAttribute('data-id') ;
+    const cursoId = e.target.getAttribute('data-id') ;
     //console.log(cursoId);
-     if(/* carrito.children[0].children[1].children[0] &&  */e.target.getAttribute('data-id')){ //solo actua si encuentra un data-id al hacer click
+     if(/* carrito.children[0].children[1].children[0] &&  */cursoId){ //solo actua si encuentra un data-id al hacer click
 
         // const contador =carrito.children[0].children[1].children[0].children[3].textContent;
         const contador =e.target.parentElement.parentElement.children[3].textContent;

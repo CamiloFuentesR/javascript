@@ -1,6 +1,6 @@
 // const url = "http://localhost:4000/clientes";
 
-const url = "https://kmikmilo.netlify.app:4000/clientes";
+const url = "https://kmikmilo.netlify.app/";
 
 export const nuevoCliente = async cliente => {
     try {
