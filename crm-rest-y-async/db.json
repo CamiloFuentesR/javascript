@@ -1,11 +1,3 @@
 {
-  "clientes": [
-    {
-      "nombre": "Camilo F. ",
-      "email": "camilo@gmail.com",
-      "telefono": "992891138",
-      "empresa": "Kmikmilo",
-      "id": 1
-    }
-  ]
+  "clientes": []
 }
