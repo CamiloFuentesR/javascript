@@ -16,7 +16,7 @@ import {mostrarAlerta,validar} from './funciones.js';
         console.log(idCliente)
 
         const cliente = await obtenerCliente(idCliente);
-
+        console.log(cliente)
         mostrarCliente(cliente);
         //submit al form
         const form = document.querySelector('#formulario');
