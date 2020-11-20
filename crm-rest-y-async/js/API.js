@@ -22,7 +22,7 @@ export const obtenerClientes = async() =>{
     try {
         const resultado = await fetch(url);
         const clientes = await resultado.json();
-        const cli = clientes.clientes;
+        const cli = clientes;
         console.log(cli)
         return cli;
     } catch (error) {
