@@ -6,6 +6,13 @@
       "telefono": "123456789",
       "empresa": "Camilo S.A",
       "id": 1
+    },
+    {
+      "nombre": "David",
+      "email": "david@gmail.com",
+      "telefono": "9999999",
+      "empresa": "David S.A",
+      "id": 2
     }
   ]
 }

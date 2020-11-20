@@ -1,13 +1,13 @@
-//   const url = "http://localhost:4000/clientes";
+//    const url = "http://localhost:4000/clientes";
 
-  const url = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json";
-  const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async/clientes";
+   const url = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json";
+   const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async/";
 
 
 export const nuevoCliente = async cliente => {
     console.log(cliente)
     try {
-        await fetch(url, {
+        await fetch(url2, {
             method: 'POST',
             body: JSON.stringify(cliente),  //se puede mandar como json o como objeto, en este caso coomo json
             headers:{
@@ -25,7 +25,7 @@ export const obtenerClientes = async() =>{
     try {
         const resultado = await fetch(url);
         const clientes = await resultado.json();
-        const cli = clientes.clientes;
+        const cli = clientes;
         console.log(cli)
         return cli;
     } catch (error) {
@@ -39,7 +39,7 @@ export const eliminarCliente = async id => {
 
     try {
 
-        await fetch(`/${url}/${id}`, {
+        await fetch(`${url2}/${id}`, {
             method: 'DELETE',
         });
         window.location.href = 'index.html'; 
