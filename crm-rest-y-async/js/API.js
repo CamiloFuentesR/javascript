@@ -73,13 +73,9 @@ export const obtenerCliente = async id => {
         console.log(cli)
         
         const m = cli.filter(cliente => cliente.id === id)
-        console.log(m);
-      /*   const cl = cli.filter(cliente => {
-            cliente.id === id ;
-        }); */
-
-        console.log(cl);
-        return cl;
+     
+        
+        return m;
         
     } catch (error) {
         console.error(error);
