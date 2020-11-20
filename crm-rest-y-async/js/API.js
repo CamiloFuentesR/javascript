@@ -71,14 +71,12 @@ export const obtenerCliente = async id => {
         const cliente = await resultado.json();
         const cli = cliente.clientes;
         console.log(cli)
-        
-         cli.forEach(cliente => {
-             console.log(cliente.id);
-         })
+        const id;
+        const m = cli.filter(cliente => cliente.id === id)
         console.log(m);
-        const cl = cli.filter(cliente => {
+      /*   const cl = cli.filter(cliente => {
             cliente.id === id ;
-        });
+        }); */
 
         console.log(cl);
         return cl;
