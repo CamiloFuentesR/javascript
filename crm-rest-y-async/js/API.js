@@ -76,7 +76,7 @@ export const obtenerCliente = async id => {
         console.log(m)
      
         
-        return m;
+        return m.value;
         
     } catch (error) {
         console.error(error);
