@@ -87,6 +87,7 @@ export const obtenerCliente = async id => {
 //actualiza un registro
 
 export const editarCliente = async cliente => {
+    console.log(cliente)
     const {id} = cliente;
     try {
         await fetch(`${url}/${id}`,{
