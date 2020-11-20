@@ -10,6 +10,8 @@ import {obtenerClientes,eliminarCliente} from  './API.js';
     async function mostrarClientes() {
         const clientes = await  obtenerClientes();
 
+        console.log(clientes);
+
         clientes.forEach(({nombre,email,telefono,empresa,id}) => {
 
             const row = document.createElement('tr');
