@@ -1,7 +1,7 @@
 //    const url = "http://localhost:4000/clientes";
 
    const url = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json";
-   const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async";
+   const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json?clientes";
 
 
 export const nuevoCliente = async cliente => {
@@ -90,7 +90,7 @@ export const editarCliente = async cliente => {
     console.log(cliente)
     const {id} = cliente;
     try {
-        await fetch(`${url}/${id}`,{
+        await fetch(`${url2}/${id}`,{
             method: 'PUT',
             body: JSON.stringify(cliente),
             headers: {
