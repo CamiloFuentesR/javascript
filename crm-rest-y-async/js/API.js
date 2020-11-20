@@ -1,6 +1,8 @@
 //   const url = "http://localhost:4000/clientes";
 
   const url = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json";
+  const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async/";
+
 
 export const nuevoCliente = async cliente => {
     try {
@@ -52,7 +54,7 @@ export const eliminarCliente = async id => {
 
 export const obtenerCliente = async id => {
     try {
-        const resultado = await fetch(`${url}/${id}`);
+        const resultado = await fetch(`${url2}/${id}`);
         const cliente = await resultado.json();
         return cliente;
         
