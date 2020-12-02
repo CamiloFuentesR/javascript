@@ -1,7 +1,7 @@
-//    const url = "http://localhost:4000/clientes";
+   const url = "http://localhost:3000/clientes";
 
-   const url = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json";
-   const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json?clientes";
+//    const url = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json"; 
+//    const url2 = "https://kmikmilo.netlify.app/crm-rest-y-async/db.json?clientes"; 
 
 
 export const nuevoCliente = async cliente => {
@@ -25,8 +25,8 @@ export const obtenerClientes = async() =>{
     try {
         const resultado = await fetch(url);
         const clientes = await resultado.json();
-        const cli = clientes.clientes;
-        console.log(cli)
+        const cli = clientes;
+    
         return cli;
     } catch (error) {
         console.error(error);        
@@ -53,7 +53,7 @@ export const eliminarCliente = async id => {
 
 //obtiene un cliente por su id
 
-/* export const obtenerCliente = async id => {
+ export const obtenerCliente = async id => {
     try {
         const resultado = await fetch(`${url}/${id}`);
         const cliente = await resultado.json();
@@ -63,8 +63,8 @@ export const eliminarCliente = async id => {
         console.error(error);
         
     }
-} */
-export const obtenerCliente = async id => {
+} 
+/* export const obtenerCliente = async id => {
     console.log(id);
     try {
         const resultado = await fetch(url);
@@ -82,7 +82,7 @@ export const obtenerCliente = async id => {
         console.error(error);
         
     }
-}
+} */
 
 //actualiza un registro
 
@@ -90,7 +90,7 @@ export const editarCliente = async cliente => {
     console.log(cliente)
     const {id} = cliente;
     try {
-        await fetch(`${url2}/${id}`,{
+        await fetch(`${url}/${id}`,{
             method: 'PUT',
             body: JSON.stringify(cliente),
             headers: {

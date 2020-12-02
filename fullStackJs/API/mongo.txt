@@ -1,0 +1,5 @@
+db_user : kmikmilo
+
+db_password: aDlqAv058tqvs3Iv
+
+https://cloud.mongodb.com/v2/5fc0c1c4df968e3e0cd93000#security/network/accessList
