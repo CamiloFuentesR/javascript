@@ -4,7 +4,7 @@ import clienteAxios from '../config/axios';
 
 const NuevaCita = (props) => {
 
-    console.log(props);
+    // console.log(props);
 
     const [cita, guardarCita] = useState({
         nombre: '',
@@ -32,7 +32,6 @@ const NuevaCita = (props) => {
 
         clienteAxios.post('/pacientes', cita)
         .then(respuesta => {
-            console.log(respuesta);
             
             props.guardarConsultar(true);
             //redireccionar

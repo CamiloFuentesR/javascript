@@ -85,17 +85,17 @@ export class UI {
 
                 btnBorrar.onclick = () => {
                     let r = confirm(`Esta seguro que desea eliminar la cita de "${mascota}" `);
-                    if(r === true){
+                    if (r === true) {
                         eliminarCita(id);
                     }
                 };
 
-          /*       btnBorrar.addEventListener('click',() => {
-                    let r = confirm(`Esta seguro que desea eliminar a ${mascota}`);
-                    if(r === true){
-                        eliminarCita(id);
-                    }
-                }); */
+                /*       btnBorrar.addEventListener('click',() => {
+                          let r = confirm(`Esta seguro que desea eliminar a ${mascota}`);
+                          if(r === true){
+                              eliminarCita(id);
+                          }
+                      }); */
 
                 btnEditar.onclick = () => cargarEdicion(cita); //sin el .value me dara undefined
 

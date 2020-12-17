@@ -43,8 +43,8 @@ export function nuevaCita(e) {
 
         administrarCitas.editarCita({ ...citasObject });
 
-         //edita en index db 
-         const transaction = DB.transaction(['citas'], 'readwrite');
+        //edita en index db 
+        const transaction = DB.transaction(['citas'], 'readwrite');
 
         //habilitar el object store
         const objectStore = transaction.objectStore('citas');
@@ -52,19 +52,19 @@ export function nuevaCita(e) {
         //se agrega en la abse de datos
         objectStore.put(citasObject);
 
-        transaction.oncomplete = () =>{
-       
+        transaction.oncomplete = () => {
+
             ui.mostrarAlerta('Cita editada con éxito');
 
             formulario.querySelector('button[type="submit"]').textContent = 'Crear cita';
             //quitar modo edicion
             editando = false;
         }
-        transaction.onerror = ()=>{
+        transaction.onerror = () => {
             console.log('ha ocurrido un error');
         }
 
-     
+
 
     } else {
         console.log('modo crear cita')
@@ -73,7 +73,7 @@ export function nuevaCita(e) {
 
         administrarCitas.agregarCita({ ...citasObject }); //se encierra en llaves para pasar una copia del objeto y no reemplazarlo en el metodo cada vez y asi no quedan todos los datos repetidos
 
-         //--------------------------insertar en la base de datos---------------------------------------------
+        //--------------------------insertar en la base de datos---------------------------------------------
 
         // insertar registro en IndexDB
         const transaction = DB.transaction(['citas'], 'readwrite');
@@ -90,7 +90,7 @@ export function nuevaCita(e) {
             // mensaje de agregado crreactamente
             ui.mostrarAlerta('Cita ingresada con éxito');
         }
- 
+
     }
 
     //reiniciar obj
@@ -117,19 +117,19 @@ export function reiniciarObj() {
 
 export function eliminarCita(id) {
 
-   const transaction = DB.transaction(['citas'],`readwrite`);
-   const objectStore = transaction.objectStore(`citas`);
-   objectStore.delete(id);
+    const transaction = DB.transaction(['citas'], `readwrite`);
+    const objectStore = transaction.objectStore(`citas`);
+    objectStore.delete(id);
 
-   transaction.complete = () =>{
-       console.log(`cita ${id} eliminada`)
-       ui.mostrarAlerta('Cita eliminada con exito');
+    transaction.complete = () => {
+        console.log(`cita ${id} eliminada`)
+        ui.mostrarAlerta('Cita eliminada con exito');
 
-   }
+    }
 
-   transaction.onerror = () =>{
-       console.log('ocurrio un error al eliminar la cita');
-   }
+    transaction.onerror = () => {
+        console.log('ocurrio un error al eliminar la cita');
+    }
 
     //imprimir mensaje
 
@@ -143,7 +143,7 @@ export function eliminarCita(id) {
 
 export function cargarEdicion(cita) {
 
-    
+
 
     const { mascota, propietario, telefono, fecha, hora, sintomas, id } = cita;
 
@@ -171,7 +171,7 @@ export function cargarEdicion(cita) {
 
 }
 
- export function crearDB() { 
+export function crearDB() {
     const crearDB = window.indexedDB.open('citas', 1);
 
     crearDB.onerror = function () {
@@ -181,7 +181,7 @@ export function cargarEdicion(cita) {
     crearDB.onsuccess = function () {
         // console.log('Creada con exito');
         DB = crearDB.result;
-        
+
 
         //mostrar citas al cargar (pero indexDB ya esta llisto)
         ui.imprimirCitas();
@@ -205,7 +205,7 @@ export function cargarEdicion(cita) {
         objectStore.createIndex('hora', 'hora', { unique: false });
         objectStore.createIndex('sintomas', 'sintomas', { unique: false });
         objectStore.createIndex('id', 'id', { unique: true });
-  
+
         console.log('db creada y lista');
     }
 

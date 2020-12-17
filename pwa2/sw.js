@@ -8,7 +8,6 @@ const archivos = [
     './css/styles.css',
     './js/pwa.js',
 
-    
 ];
 
 
@@ -19,10 +18,10 @@ self.addEventListener('install', e => {
 
     e.waitUntil(
         caches.open(nombreCache)
-        .then(cache => {
-            console.log('cacheando');
-            cache.addAll(archivos)
-        })
+            .then(cache => {
+                console.log('cacheando');
+                cache.addAll(archivos)
+            })
     )
 });
 
@@ -34,26 +33,26 @@ self.addEventListener('activate', e => {
 
     e.waitUntil(
         caches.keys()
-        .then(keys => {
-            return Promise.all(
-                keys.filter(key => key !== nombreCache) //filtra la version de cache actual
-                .map(key => caches.delete(key))  // borra als demas versiones de cache
-            )
-        })
+            .then(keys => {
+                return Promise.all(
+                    keys.filter(key => key !== nombreCache) //filtra la version de cache actual
+                        .map(key => caches.delete(key))  // borra als demas versiones de cache
+                )
+            })
     )
 });
 
 //evento fech paa descargar archivos estaticos
 
-self.addEventListener('fetch',  e => {
+self.addEventListener('fetch', e => {
     // console.log('fetch...',e)
 
     e.respondWith(
         caches.match(e.request)
-        .then(respuestaCache => {
-            console.log(e.request);
-            return respuestaCache || fetch(e.request);
-        })
-        .catch(()=> caches.match('./error.html'))
+            .then(respuestaCache => {
+                console.log(e.request);
+                return respuestaCache || fetch(e.request);
+            })
+            .catch(() => caches.match('./error.html'))
     )
 })

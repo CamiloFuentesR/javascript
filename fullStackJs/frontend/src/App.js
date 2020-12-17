@@ -28,10 +28,10 @@ function App() {
             }
             consultarApi();
         }
-        
+
     }, [consultar]);
 
-    console.log(process.env.REACT_APP_BACKEND_URL)
+    // console.log(process.env.REACT_APP_BACKEND_URL)
     return (
         <Router>
             <Switch>
@@ -43,12 +43,23 @@ function App() {
                 <Route
                     exact
                     path="/nueva"
-                    component={() => <NuevaCita guardarConsultar= {guardarConsultar} />}
+                    component={() => <NuevaCita guardarConsultar={guardarConsultar} />}
                 />
                 <Route
                     exact
                     path="/cita/:id"
-                    component={Cita}
+                    render={(props) => {
+
+                        const cita = citas.filter(cita => cita._id === props.match.params.id)
+
+                        return (
+                            <Cita
+                                cita={cita[0]}
+                                guardarConsultar={guardarConsultar}
+                            />
+                        )
+
+                    }}
                 />
             </Switch>
         </Router>

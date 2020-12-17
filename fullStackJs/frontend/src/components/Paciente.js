@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 const Pacientes = ({citas}) => {  //desde props se extraen los atributos 
 
-
-    if(citas.length === 0) return null;
-    console.log(citas)
+    /* if(citas.length === 0) return null;
+    console.log(citas) */
 
     return (
         <Fragment>
@@ -21,8 +20,8 @@ const Pacientes = ({citas}) => {  //desde props se extraen los atributos
                         <div className="list-group">
                             {citas.map(cita => (
 
-                                // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                                <a key={cita._id} className="p-5 list-group-item list-group-item-action flex-colum align-item-start">
+                                
+                                <Link to={`/cita/${cita._id}`}key={cita._id} className="p-5 list-group-item list-group-item-action flex-colum align-item-start">
                                     <div className="d-flex w-100 justify-content-between b-4">
                                         <h3  className="mb-3">Mascota: {cita.nombre}</h3> 
                                         <small className="fecha-alta">
@@ -40,7 +39,7 @@ const Pacientes = ({citas}) => {  //desde props se extraen los atributos
                                     </div>
                                     
 
-                                </a>
+                                </Link>
                                
                             ) )}
                         </div>
