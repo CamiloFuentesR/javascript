@@ -50,7 +50,7 @@ self.addEventListener('fetch', e => {
     e.respondWith(
         caches.match(e.request)
             .then(respuestaCache => {
-                console.log(e.request);
+                // console.log(e.request);
                 return respuestaCache || fetch(e.request);
             })
             .catch(() => caches.match('./error.html'))

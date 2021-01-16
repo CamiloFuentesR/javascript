@@ -18,11 +18,16 @@ document.addEventListener('DOMContentLoaded',() => {
     
 })  
 //crear un promise
-const obtenerCriptomonedas = (criptomonedas) => new Promise( resolve => {
+ const obtenerCriptomonedas = (criptomonedas) => new Promise( resolve => {
 
     resolve(criptomonedas);
+});  
+/* 
+//sin promesa
+const obtenerCriptomonedas = (criptomonedas) => {
+   return criptomonedas
+};  */
 
-}); 
 
 async function consultarCriptomoneadas() {
 

@@ -1,11 +1,10 @@
 import React, {Fragment} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 const Pacientes = ({citas}) => {  //desde props se extraen los atributos 
 
     /* if(citas.length === 0) return null;
     console.log(citas) */
-
     return (
         <Fragment>
             <h1 className="my-5">Administrado de Pacientes</h1>
@@ -52,4 +51,4 @@ const Pacientes = ({citas}) => {  //desde props se extraen los atributos
       );
 }
  
-export default Pacientes;
+export default withRouter(Pacientes);

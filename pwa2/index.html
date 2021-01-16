@@ -6,8 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="Description" content="PWA JS.">
     <title>Administrador de Pacientes</title>
-    <link rel="stylesheet" href="css/bootstrap.css">
+     <link rel="stylesheet" href="css/bootstrap.css"> 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" href="img/icons/icon-96x96.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -25,14 +27,17 @@
                     <legend class="mb-4">Datos del Paciente</legend>
                   
                     <div class="form-group row">
+                        
                         <label class="col-sm-4 col-lg-4 col-form-label">Nombre Mascota:</label>
                         <div class="col-sm-8 col-lg-8">
                             <input type="text" id="mascota" name="mascota" class="form-control" placeholder="Nombre Mascota">
                         </div>
                     </div>
+                    
                     <div class="form-group row">
                         <label class="col-sm-4 col-lg-4 col-form-label">Propietario:</label>
                         <div class="col-sm-8 col-lg-8">
+
                             <input type="text" id="propietario" name="propietario" class="form-control"  placeholder="Nombre Dueño de la Mascota">
                         </div>
                     </div>
@@ -63,7 +68,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                            <button type="submit" class="btn btn-success w-100 d-block">Crear Cita</button>
+                            <button type="submit" class="btn btn-success w-100 d-block">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>Crear cita
+                           </button>
                     </div>
                 </form>
             </div>
