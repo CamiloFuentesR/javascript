@@ -1,8 +1,8 @@
 import React, {Fragment} from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import { ContenidoPaciente } from './ContenidoPaciente';
 
 const Pacientes = ({citas}) => {  //desde props se extraen los atributos 
-
     /* if(citas.length === 0) return null;
     console.log(citas) */
     return (
@@ -18,27 +18,12 @@ const Pacientes = ({citas}) => {  //desde props se extraen los atributos
                     <div className="col-md-8 mx-auto">
                         <div className="list-group">
                             {citas.map(cita => (
-
+                                <ContenidoPaciente
+                                    key={cita._id}
+                                    {...cita}
+                                />
                                 
-                                <Link to={`/cita/${cita._id}`}key={cita._id} className="p-5 list-group-item list-group-item-action flex-colum align-item-start">
-                                    <div className="d-flex w-100 justify-content-between b-4">
-                                        <h3  className="mb-3">Mascota: {cita.nombre}</h3> 
-                                        <small className="fecha-alta">
-                                            {cita.fecha} - {cita.hora}
-                                        </small>
-
-                                    </div>
-                                    
-                                    <p className="mb-0">
-                                        {cita.sintomas}
-                                    </p>
-                                    <div className="contacto py-3">
-                                        <p>Dueño: {cita.propietario}</p>
-                                        <p>Telefono: {cita.telefono}</p>
-                                    </div>
-                                    
-
-                                </Link>
+                                
                                
                             ) )}
                         </div>

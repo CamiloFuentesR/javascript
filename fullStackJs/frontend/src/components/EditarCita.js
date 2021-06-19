@@ -1,11 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link, useHistory, useParams, withRouter } from 'react-router-dom';
 import clienteAxios from '../config/axios';
+import { getPacienteById } from './selectors/getPacienteById';
 
 const EditarCita = (props) => {
     const { id } = useParams();
-    const cliente = clienteAxios.get(`/pacientes/${id}`);
-    const isMounted = useRef(true);
+    // const cliente = clienteAxios.get(`/pacientes/${id}`);
+    // const isMounted = useRef(true);
+    const res = useMemo(() => getPacienteById(id), [id])
     const [prom, setProm] = useState(props.cita || {
         _id: '',
         nombre: '',
@@ -15,83 +17,41 @@ const EditarCita = (props) => {
         telefono: '',
         propietario: ''
     });
-
-
-
+    async function mostrar(res) {
+        setProm(await res);
+        return;
+    }
+    //es la misma resp que usando el codigo de abajo, pero mas eficiente el codigo
     useEffect(() => {
-        return () => {
-            setProm({})
-        }
-    }, [])
-    useEffect(() => {
-
-        if (isMounted.current) {
-            cliente.then(async (res) => {
-                try {
-                    const perro = await res.data;
-                    await setProm(perro);
-
-                } catch (error) {
-                    console.log(error)
-                }
-            })
-        }
-        return () => {
-            isMounted.current = false;
-        }
-    }, [id, cliente])
+        !props.cita
+            && mostrar(res);
+    }, [props.cita, res])
 
 
+    // useEffect(() => {
+    //     return () => {
+    //         setProm({})
+    //     }
+    // }, [])
+    // useEffect(() => {
 
-    /*   const { citas, consultar, guardarConsultar,state,dispatch } = useContext(UserContext)
-      async function show (id) {
-          const paciente = await state;
-          setProm( await paciente.find(async res=>await res._id===id))
-          console.log(prom)
-          return await paciente.find(async res=>await res._id===id)
-      
-      }
-      show(id);  */
-    /*   if(isMounted.current){
-          guardarCita(props.cita)
-      } */
-    /*     console.log(citas)
-        let ci=[]
-        ci = citas?.find(ci=>ci._id===props.cita._id) || [];
-        console.log(ci)
-     */
-    /*    function mostrar(){
-           if(props.cita){
-               return props.cita
-           }
-           return []
-       } */
-    /*  useEffect(() => {
-        return () =>{
-     isMounted.current =props.cita;
-          
-        }
-         
-     }, []) */
+    //     if (isMounted.current) {
+    //         cliente.then(async (res) => {
+    //             try {
+    //                 const perro = await res.data;
+    //                 await setProm(perro);
+    //             } catch (error) {
+    //                 console.log(error)
+    //             }
+    //         })
+    //     }
+    //     return () => {
+    //         isMounted.current = false;
+    //     }
+    // }, [id, cliente])
 
     const history = useHistory();
 
-    /*  useEffect(() => {
- 
-         cliente.then((res) => {
-             const perro = res.data;
-             guardarCita(perro);
-         })
- 
-     }, [id]); */
-
-
-    // let guardado = obtenerUserById(id)
-    // console.log(guardado)
-    //  console.log(user.then(res=>console.log(res)))
-    //  const us = useMemo( () => obtenerUserById(id), [id])
-    // const { _id, nombre, hora, fecha, propietario, sintomas, telefono } = citas;
-    //le los datos del form
     function actualizarState(e) {
         setProm({
             ...prom,

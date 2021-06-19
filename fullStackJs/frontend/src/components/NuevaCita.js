@@ -29,7 +29,6 @@ const NuevaCita = (props) => {
     // Enviar una peticion a la Api
     const crearNuevaCita = e => {
         e.preventDefault();
-
         clienteAxios.post('/pacientes', cita)
             .then(respuesta => {
                 console.log(respuesta)
@@ -39,9 +38,7 @@ const NuevaCita = (props) => {
                 //redireccionar
                 props.history.push('/');
             })
-
     }
-
 
     return (
 
@@ -67,7 +64,6 @@ const NuevaCita = (props) => {
                                     onChange={actualizarState}
                                 />
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="propietario">Nombre Propietario</label>
                                 <input
@@ -79,7 +75,6 @@ const NuevaCita = (props) => {
                                     onChange={actualizarState}
                                 />
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="telefono">Teléfono</label>
                                 <input
@@ -91,7 +86,6 @@ const NuevaCita = (props) => {
                                     onChange={actualizarState}
                                 />
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="fecha">Fecha Alta</label>
                                 <input
@@ -102,7 +96,6 @@ const NuevaCita = (props) => {
                                     onChange={actualizarState}
                                 />
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="hora">Hora Alta</label>
                                 <input
@@ -113,7 +106,6 @@ const NuevaCita = (props) => {
                                     onChange={actualizarState}
                                 />
                             </div>
-
                             <div className="form-group">
                                 <label htmlFor="sintomas">Síntomas</label>
                                 <textarea
@@ -123,11 +115,8 @@ const NuevaCita = (props) => {
                                     onChange={actualizarState}
                                 ></textarea>
                             </div>
-
-
                             <input type="submit" className="btn btn-primary mt-3 w-100 p-3 text-uppercase font-weight-bold" value="Crear Cita" />
                         </form>
-
                     </div>
                 </div>
             </div>

@@ -7,7 +7,7 @@ const cors = require('cors');
 const app = express();
 
 //habilitar cors
-const whiteList = ['http://localhost:3000']; //hace accesible solo desde esta url
+const whiteList = ['http://localhost:3001' || 'https://bddveterinaria.herokuapp.com/']; //hace accesible solo desde esta url
 const corsOptions = {
     origin: (origin, callbaback) => {
         //console.log(origin);
@@ -19,9 +19,11 @@ const corsOptions = {
         }
     }
 }
+//con uso de cors
+//  app.use(cors(corsOptions));
 
- app.use(cors(corsOptions));
-// app.use(cors());
+//sin cors limitado
+app.use(cors());
 
 //connectar a moongoDb
 mongoose.Promise = global.Promise;

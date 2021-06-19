@@ -16,16 +16,10 @@ ciudadSelect.appendChild(option)
 
 buscarPais.addEventListener('change', ciudad);
 
-
 function obtenerPais(e) {
-
-
     console.log(e.target.value)
 }
-
 // window.addEventListener('DOMContentLoaded',ciudad);
-
-
 window.addEventListener('load', () => {
     formulario.addEventListener('submit', buscarClima);
 });
@@ -33,27 +27,19 @@ window.addEventListener('load', () => {
 
 function buscarClima(e) {
     e.preventDefault();
-
     //validar
-
     const ciudad = document.querySelector('#ciudad').value;
     const pais = document.querySelector('#pais').value;
-
     if (ciudad === '' || pais === '') {
         mostrarError('Ambos campos son obligtorios');
-
         /*   Swal.fire(
               'Campos vacìos',
               '¿Revisaste que todos los campos esten llenos?',
               'warning'
             ) */
-
         return;
     }
-
     //consultar la API
-
-
     consultarApi(ciudad, pais);
 }
 
@@ -65,17 +51,13 @@ function mostrarError(mensaje) {
         //el scope de alerta no llega dentro de esta funcion
         const alerta = document.createElement('div');
         alerta.classList.add('bg-red-100', 'border-red-400', 'text-red-700', 'px4', 'py3', 'rounded', 'max-w-md', 'mx-auto', 'mt-6', 'text-center');
-
         alerta.innerHTML = `
         <strong class="font-bold">Error!!</strong>
         <span class="block">${mensaje}</span>
         `;
-
         contenedor.appendChild(alerta);
-
         setTimeout(() => {
             alerta.remove();
-
         }, 2000);
 
     }
@@ -85,28 +67,22 @@ function ciudad(e) {
     const ciudadValue = e.target.value;
     const url = 'ciudad/city.json';
     spinner();
-
     fetch(url)
         .then(respuesta => respuesta.json())
-        .then(datos =>{
-            limpirHTML();
-            mostrarCiudad(datos, ciudadValue)} )
-        
+        .then(datos => {
+            limpirHTMLResultado ();
+            mostrarCiudad(datos, ciudadValue)
+        })
 }
 
 function mostrarCiudad(datos, id) {
-    console.log(id)
     const { country } = datos;
     const contenido = document.querySelector('#ciudad');
     let html = ``;
-
     let ciudades = datos.filter(ciudad => id === ciudad.country)
-
-
     ciudades.forEach(nombre => {
         html += `
         <option value="${nombre.name}">${nombre.name}</option>`;
-
     });
     contenido.innerHTML = html;
     $('.select2').select2();
@@ -139,13 +115,12 @@ function consultarApi(ciudad, pais) {
     fetch(url)
         .then(respuesta => respuesta.json())
         .then(datos => {
-            limpirHTML();//limpiar el htl previo
-            console.log(datos);
+            //limpiar el html previo
+            limpirHTMLResultado ();
             if (datos.cod === "404") {
                 mostrarError('Ciudad no encontrada');
                 return;
             }
-
             mostrarClima(datos);
         })
 }
@@ -186,7 +161,7 @@ function mostrarClima(datos) {
 
 }
 
-const limpirHTML = () => {
+const limpirHTMLResultado  = () => {
     while (resultado.firstChild) {
         resultado.removeChild(resultado.firstChild);
     }
@@ -195,13 +170,10 @@ const limpirHTML = () => {
 const kelvinACentigrados = grados => parseInt(grados - 273.15);
 
 function spinner() {
-    limpirHTML();
-
+    limpirHTMLResultado ();
     const divSpinner = document.createElement('div');
     divSpinner.classList.add('sk-fading-circle');
-
     divSpinner.innerHTML = `
-    
     <div class="sk-circle1 sk-circle"></div>
     <div class="sk-circle2 sk-circle"></div>
     <div class="sk-circle3 sk-circle"></div>
@@ -214,8 +186,6 @@ function spinner() {
     <div class="sk-circle10 sk-circle"></div>
     <div class="sk-circle11 sk-circle"></div>
     <div class="sk-circle12 sk-circle"></div>
-  
 `;
-
     resultado.appendChild(divSpinner);
 }

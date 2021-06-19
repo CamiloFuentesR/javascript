@@ -16,7 +16,7 @@ const Cita = (props) => {
 
         Swal.fire({
             title: '¿Estas Seguro?',
-            text: "Una cita eliminada no se puede recuperr",
+            text: "Una cita eliminada no se puede recuperar",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -27,12 +27,7 @@ const Cita = (props) => {
             console.log(result)
             if (result.isConfirmed) {
 
-                //alerta de eliminado
-                Swal.fire(
-                    'Deleted!',
-                    'Your file has been deleted.',
-                    'success'
-                )
+               
 
                 //eliminado de la abse de datos
                 clienteAxios.delete(`/pacientes/${id}`)
@@ -41,7 +36,12 @@ const Cita = (props) => {
                         //estos props es enviado desde el componente padre app.js
                         props.guardarConsultar(true);
                         props.history.push('/');
-
+                         //alerta de eliminado
+                Swal.fire(
+                    'Eliminado con exito!',
+                    `${respuesta.data.mensaje}`,
+                    'success'
+                )
                     })
                     .catch(error => {
                         console.log(error)

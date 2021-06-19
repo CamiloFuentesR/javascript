@@ -56,6 +56,7 @@ function App() {
     }, [consultar]);
    
     // console.log(process.env.REACT_APP_BACKEND_URL)
+    
     return (
 
         <UserContext.Provider value={{
@@ -73,6 +74,7 @@ function App() {
                 <Route
                     exact
                     path="/"
+                    //si quiere enviar props tiene que mandar el component como funcion
                     component={() => <Pacientes citas={citas} />}
                 />
                 <Route
